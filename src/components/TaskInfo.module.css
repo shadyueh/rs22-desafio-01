@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  
-
 }
 
 .taskInfo p:first-child{
@@ -17,12 +15,15 @@
 .taskInfo p {
   font-size: 0.875rem;
   font-weight: bold;
+  line-height: 1.0625rem;
 }
 
 .taskInfo span {
   border-radius: 100%;
-  color: var(--gray-300);
+  color: var(--gray-200);
   background-color: var(--gray-400);
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
   padding: 0.126rem 0.5rem;
   margin-left: 0.5rem;
 }

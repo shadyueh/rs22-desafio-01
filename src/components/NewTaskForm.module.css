@@ -9,6 +9,7 @@
 .newTask input[type="text"] {
   background: var(--gray-500);
   color: var(--gray-300);
+  line-height: 1.4rem;
   border: 1px solid var(--gray-700);
   border-radius: 8px;
   padding: 1rem;
@@ -22,6 +23,7 @@
   padding: 1rem;
 
   font-size: 0.875rem;
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
   align-items: center;
