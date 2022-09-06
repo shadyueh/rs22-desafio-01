@@ -1,19 +1,18 @@
 import { Circle, CheckCircle, Trash } from "phosphor-react";
+import { TaskInfo } from "./TaskInfo";
+import { TaskItem } from "./TaskItem";
+import { NoTask } from "./NoTask";
 
 import styles from "./TaskList.module.css";
 
 export function TaskList() {
   return (
-    <div className={styles.task}>
-      <Circle size={24} className={styles.checkbox} />
-
-      <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
-      </p>
-      <button title="Remover tarefa">
-        <Trash size={16} />
-      </button>
+    <div className={styles.tasks}>
+      <TaskInfo />
+      <TaskItem />
+      <TaskItem />
+      <TaskItem />
+      <TaskItem />
     </div>
   );
 }
