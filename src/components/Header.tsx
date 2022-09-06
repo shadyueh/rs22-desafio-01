@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 
-import taskListLogo from "../assets/task-list.svg";
+import taskListLogo from "../assets/app-logo.svg";
 
 export function Header() {
   return (
