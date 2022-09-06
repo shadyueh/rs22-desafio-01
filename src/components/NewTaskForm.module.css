@@ -29,6 +29,10 @@
   align-items: center;
 }
 
+.newTask button:hover {
+  background-color: var(--blue);
+}
+
 .newTask button[type="submit"] img {
   width: 1rem;
   height: 1rem;
