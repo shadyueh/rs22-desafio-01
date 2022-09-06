@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Header } from "./components/Header";
 import { NewTaskForm } from "./components/NewTaskForm";
-import { TaskList } from "./components/TaskList";
+import { NoTask } from "./components/NoTask";
 import { TaskInfo } from "./components/TaskInfo";
 
 import styles from "./App.module.css";
@@ -18,7 +18,7 @@ function App() {
       <NewTaskForm />
       <div className={styles.tasks}>
         <TaskInfo />
-        <TaskList />
+        <NoTask />
       </div>
     </div>
   );
