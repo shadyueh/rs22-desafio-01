@@ -1,15 +1,19 @@
+import { Circle, CheckCircle, Trash } from "phosphor-react";
+
 import styles from "./TaskList.module.css";
-import clipboard from "../assets/clipboard.png";
 
 export function TaskList() {
   return (
-    <div className={styles.noTasks}>
-      <img src={clipboard} alt="sem tarefas" />
+    <div className={styles.task}>
+      <Circle size={24} className={styles.checkbox} />
+
       <p>
-        <strong>Você ainda não tem tarefas cadastradas</strong>
-        <br />
-        Crie tarefas e organize seus itens a fazer
+        Integer urna interdum massa libero auctor neque turpis turpis semper.
+        Duis vel sed fames integer.
       </p>
+      <button title="Remover tarefa">
+        <Trash size={16} />
+      </button>
     </div>
   );
 }
