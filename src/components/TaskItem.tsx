@@ -3,16 +3,18 @@ import { Checkbox } from "./Checkbox";
 
 import styles from "./TaskItem.module.css";
 
-export function TaskItem() {
-  return (
-    <div className={styles.task}>
-      <Checkbox size={24}  />
+export interface TaskItemProps {
+  key: string;
+  content: string;
+}
 
-      <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
-      </p>
-      
+export function TaskItem({ key, content }: TaskItemProps) {
+  return (
+    <div key={key} className={styles.task}>
+      <Checkbox size={24} />
+
+      <p>{content}</p>
+
       <button title="Remover tarefa">
         <Trash size={16} />
       </button>

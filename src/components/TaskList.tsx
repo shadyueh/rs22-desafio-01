@@ -1,18 +1,19 @@
-import { Circle, CheckCircle, Trash } from "phosphor-react";
 import { TaskInfo } from "./TaskInfo";
-import { TaskItem } from "./TaskItem";
+import { TaskItem, TaskItemProps } from "./TaskItem";
 import { NoTask } from "./NoTask";
 
 import styles from "./TaskList.module.css";
 
-export function TaskList() {
+export interface TaskListProps {
+  items : TaskItemProps[]
+}
+
+export function TaskList({ items } : TaskListProps) {
   return (
     <div className={styles.tasks}>
-      <TaskInfo />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
+      {items.map((task) => {
+        return <TaskItem key={task.key} content={task.content} />;
+      })}
     </div>
   );
 }
