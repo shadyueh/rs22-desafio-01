@@ -10,8 +10,8 @@ export interface TaskItemProps {
 
 export function TaskItem({ key, content }: TaskItemProps) {
   return (
-    <div key={key} className={styles.task}>
-      <Checkbox size={24} />
+    <div className={styles.task}>
+      <Checkbox key={key} />
 
       <p>{content}</p>
 

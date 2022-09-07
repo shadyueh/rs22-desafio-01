@@ -1,15 +1,51 @@
-.checkbox .unchecked {
-  color: var(--blue);
+.round {
+  position: relative;
 }
 
-.checkbox .unchecked:hover {
-  color: var(--blue-dark);
+.round label {
+  background-color: transparent;
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  cursor: pointer;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
-.checkbox .checked {
-  color: var(--purple-dark);
+.round label:after {
+  position: absolute;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 4px;
+  width: 8px;
+  left: 4px;
+  top: 5px;
+  transform: rotate(-45deg);
+  opacity: 0;
 }
 
-.checkbox .checked:hover {
-  color: var(--purple);
+.round label:hover {
+  border: 3px solid var(--blue-dark);
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.round input[type="checkbox"]:checked + label:hover {
+  background-color: var(--purple);
+  border-color: var(--purple);
 }

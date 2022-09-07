@@ -1,34 +1,29 @@
-import { useState } from "react";
-import { Circle, CheckCircle } from "phosphor-react";
+import { InputHTMLAttributes, useState } from "react";
 
 import styles from "./Checkbox.module.css";
 
-interface CheckboxProps {
-  size?: number;
-  checked?: boolean;
+interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  key: string;
 }
 
-Checkbox.defaultProps = {
-  size: 16,
-  checked: false,
-};
+export function Checkbox({ key, checked }: CheckboxProps) {
+  const [isChecked, setIsChecked] = useState(false);
 
-export function Checkbox({ size, checked }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState(checked);
-
-  const handleCheck = () => {
-    setIsChecked(!isChecked);
-  };
+  function handleCheck() {
+    setIsChecked((state) => {
+      return !state;
+    });
+  }
 
   return (
-    <div className={styles.checkbox} onClick={handleCheck}>
-      {isChecked ? (
-        <CheckCircle size={size} className={styles.checked} weight="fill">
-          <circle cx="128" cy="128" r="96" fill="white" />
-        </CheckCircle>
-      ) : (
-        <Circle size={size} className={styles.unchecked} />
-      )}
+    <div className={styles.round}>
+      <input
+        type="checkbox"
+        id={`checkbox-${key}`}
+        checked={isChecked}
+        onChange={handleCheck}
+      />
+      <label htmlFor={`checkbox-${key}`}></label>
     </div>
   );
 }
