@@ -1,0 +1,15 @@
+.checkbox .unchecked {
+  color: var(--blue);
+}
+
+.checkbox .unchecked:hover {
+  color: var(--blue-dark);
+}
+
+.checkbox .checked {
+  color: var(--purple-dark);
+}
+
+.checkbox .checked:hover {
+  color: var(--purple);
+}
