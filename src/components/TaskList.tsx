@@ -1,29 +1,24 @@
 import { TaskInfo } from "./TaskInfo";
-import { TaskItem, TaskItemProps } from "./TaskItem";
+import { Task, TaskProps } from "./Task";
 import { NoTask } from "./NoTask";
 
 import styles from "./TaskList.module.css";
 
-export interface TaskListProps {
-  items?: TaskItemProps[];
+interface TaskListProps {
+  items: TaskProps[];
 }
 
 export function TaskList({ items }: TaskListProps) {
-  if (Array.isArray(items) && items?.length > 0) {
-    return (
-      <div className={styles.tasks}>
-        <TaskInfo />
-        {items.map((task) => {
-          return <TaskItem key={task.key} content={task.content} />;
-        })}
-      </div>
-    );
-  } else {
-    return (
-      <div className={styles.tasks}>
-        <TaskInfo />
+  return (
+    <div className={styles.tasks}>
+      <TaskInfo />
+      {Array.isArray(items) && items?.length > 0 ? (
+        items.map((task) => {
+          return <Task key={task.id} id={task.id} content={task.content} />;
+        })
+      ) : (
         <NoTask />
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }

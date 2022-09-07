@@ -1,17 +1,17 @@
 import { Trash } from "phosphor-react";
 import { Checkbox } from "./Checkbox";
 
-import styles from "./TaskItem.module.css";
+import styles from "./Task.module.css";
 
-export interface TaskItemProps {
-  key: string;
+export interface TaskProps {
+  id: string;
   content: string;
 }
 
-export function TaskItem({ key, content }: TaskItemProps) {
+export function Task({ id, content }: TaskProps) {
   return (
     <div className={styles.task}>
-      <Checkbox key={key} label={content}/>
+      <Checkbox id={id} label={content} />
       <button title="Remover tarefa">
         <Trash size={16} />
       </button>
