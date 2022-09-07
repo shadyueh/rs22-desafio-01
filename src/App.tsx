@@ -34,7 +34,7 @@ function App() {
     <div>
       <Header />
       <NewTaskForm onCreateTask={handleCreateNewTask} />
-      <TaskList items={tasks} onRemoveItem={handleDeleteTask} />
+      <TaskList items={tasks} />
     </div>
   );
 }
