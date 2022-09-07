@@ -3,15 +3,15 @@ import plusIcon from "../assets/plus-icon.svg";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 interface NewTaskFormProps {
-  onTaskCreate: (taskText: string) => void;
+  onCreateTask: (taskText: string) => void;
 }
 
-export function NewTaskForm({ onTaskCreate }: NewTaskFormProps) {
+export function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
   const [newTaskText, setNewTaskText] = useState("");
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-    onTaskCreate(newTaskText);
+    onCreateTask(newTaskText);
     setNewTaskText("");
   }
 

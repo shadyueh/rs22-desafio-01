@@ -5,10 +5,11 @@ import { NoTask } from "./NoTask";
 import styles from "./TaskList.module.css";
 
 interface TaskListProps {
-  items?: TaskProps[];
+  items: TaskProps[];
+  onRemoveItem: (task: string) => void;
 }
 
-export function TaskList({ items }: TaskListProps) {
+export function TaskList({ items, onRemoveItem }: TaskListProps) {
   const hasTasks = Array.isArray(items) && items.length > 0;
 
   return (
@@ -16,7 +17,14 @@ export function TaskList({ items }: TaskListProps) {
       <TaskInfo created={hasTasks ? items.length : 0} done={0} />
       {hasTasks ? (
         items.map((task) => {
-          return <Task key={task.id} id={task.id} content={task.content} />;
+          return (
+            <Task
+              key={task.id}
+              id={task.id}
+              content={task.content}
+              onDeleteTask={onRemoveItem}
+            />
+          );
         })
       ) : (
         <NoTask />
