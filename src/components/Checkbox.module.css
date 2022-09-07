@@ -1,8 +1,14 @@
 .round {
   position: relative;
+  display: flex;
 }
 
 .round label {
+  margin-left: 2.25rem;
+  text-align: justify;
+}
+
+.round span {
   background-color: transparent;
   border: 3px solid var(--blue);
   border-radius: 50%;
@@ -14,7 +20,7 @@
   top: 0;
 }
 
-.round label:after {
+.round span:after {
   position: absolute;
   border: 2px solid #fff;
   border-top: none;
@@ -28,24 +34,30 @@
   opacity: 0;
 }
 
-.round label:hover {
+.round span:hover {
   border: 3px solid var(--blue-dark);
 }
 
 .round input[type="checkbox"] {
-  visibility: hidden;
+  visibility: hidden; /* hide element */
+  position: absolute; /* ignore element width */
 }
 
-.round input[type="checkbox"]:checked + label {
+.round input[type="checkbox"]:checked + span {
   background-color: var(--purple-dark);
   border-color: var(--purple-dark);
 }
 
-.round input[type="checkbox"]:checked + label:after {
+.round input[type="checkbox"]:checked + span:after {
   opacity: 1;
 }
 
-.round input[type="checkbox"]:checked + label:hover {
+.round input[type="checkbox"]:checked + span:hover {
   background-color: var(--purple);
   border-color: var(--purple);
+}
+
+.striked {
+  color: var(--gray-300);
+  text-decoration-line: line-through;
 }

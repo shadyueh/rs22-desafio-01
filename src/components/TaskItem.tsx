@@ -11,10 +11,7 @@ export interface TaskItemProps {
 export function TaskItem({ key, content }: TaskItemProps) {
   return (
     <div className={styles.task}>
-      <Checkbox key={key} />
-
-      <p>{content}</p>
-
+      <Checkbox key={key} label={content}/>
       <button title="Remover tarefa">
         <Trash size={16} />
       </button>
