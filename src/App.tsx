@@ -22,6 +22,10 @@ const data: TaskListProps = {
   ],
 };
 
+const emptyData: TaskListProps = {
+  items: []
+}
+
 function App() {
   const [countCreatedTasks, setCountCreatedTasks] = useState(0);
   const [countFinishedTasks, setCountFinishedTasks] = useState(0);
@@ -30,7 +34,7 @@ function App() {
     <div>
       <Header />
       <NewTaskForm />
-      <TaskList items={data.items} />
+      <TaskList items={emptyData.items} />
     </div>
   );
 }
