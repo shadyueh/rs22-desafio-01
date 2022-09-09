@@ -6,10 +6,16 @@ import styles from "./Task.module.css";
 export interface TaskProps {
   id: string;
   content: string;
+  status: "todo" | "done";
   onDeleteTask: (id: string) => void;
 }
 
-export function Task({ id, content, onDeleteTask }: TaskProps) {
+export function Task({
+  id,
+  content,
+  status,
+  onDeleteTask,
+}: TaskProps) {
   function handleDeleteTask() {
     onDeleteTask(id);
   }

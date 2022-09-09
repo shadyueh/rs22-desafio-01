@@ -12,29 +12,43 @@ const emptyTaskList: TaskProps[] = [];
 
 function App() {
   const [tasks, setTasks] = useState(emptyTaskList);
+  const [createdTasks, setCreatedTasks] = useState(0);
+  const [doneTasks, setDoneTasks] = useState(0);
 
   function handleCreateNewTask(newTaskContent: string) {
-    let newTaskId = (tasks.length + 1).toString();
     let newTask: TaskProps = {
-      id: newTaskId,
+      id: newTaskContent,
       content: newTaskContent,
-      onDeleteTask: handleDeleteTask,
+      status: "todo",
+      onDeleteTask: deleteTask,
     };
-    setTasks([...tasks, newTask]);
+
+    setTasks((state) => {
+      return [...state, newTask];
+    });
+
+    setCreatedTasks((state) => {
+      return state + 1;
+    });
   }
 
-  function handleDeleteTask(taskToDelete: string) {
-    const tasksWithoutDeletedOne = tasks.filter((task) => {
-      return task.id !== taskToDelete;
+  function deleteTask(taskToDelete: string) {
+    setTasks((state) => {
+      return state.filter((task) => {
+        return task.id !== taskToDelete;
+      });
     });
-    setTasks(tasksWithoutDeletedOne);
+
+    setCreatedTasks((state) => {
+      return state - 1;
+    });
   }
 
   return (
     <div>
       <Header />
       <NewTaskForm onCreateTask={handleCreateNewTask} />
-      <TaskList items={tasks} />
+      <TaskList items={tasks} created={createdTasks} done={doneTasks} />
     </div>
   );
 }
