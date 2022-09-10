@@ -12,8 +12,8 @@ const emptyTaskList: TaskProps[] = [];
 
 function App() {
   const [tasks, setTasks] = useState(emptyTaskList);
-  const [createdTasks, setCreatedTasks] = useState(0);
-  const [doneTasks, setDoneTasks] = useState(0);
+  let createdTasks = tasks.length;
+  let doneTasks = tasks.filter((task) => task.status === "done").length;
 
   function handleCreateNewTask(newTaskContent: string) {
     let newTask: TaskProps = {
@@ -21,14 +21,11 @@ function App() {
       content: newTaskContent,
       status: "todo",
       onDeleteTask: deleteTask,
+      onUpdateStatus: updateTaskStatus,
     };
 
     setTasks((state) => {
       return [...state, newTask];
-    });
-
-    setCreatedTasks((state) => {
-      return state + 1;
     });
   }
 
@@ -38,9 +35,18 @@ function App() {
         return task.id !== taskToDelete;
       });
     });
+  }
 
-    setCreatedTasks((state) => {
-      return state - 1;
+  function updateTaskStatus(taskToUpdate: string, isChecked: boolean) {
+    setTasks((state) => {
+      let newState: TaskProps[] = state.map((task) => {
+        if (task.id === taskToUpdate) {
+          return { ...task, status: isChecked ? "done" : "todo" };
+        }
+        return task;
+      });
+      // console.log(newState);
+      return newState;
     });
   }
 
