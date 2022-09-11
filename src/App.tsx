@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { v4 } from "uuid";
 
 import { Header } from "./components/Header";
 import { NewTaskForm } from "./components/NewTaskForm";
-import { Task, TaskProps } from "./components/Task";
+import { TaskProps } from "./components/Task";
 import { TaskList } from "./components/TaskList";
 
 import styles from "./App.module.css";
@@ -17,16 +18,13 @@ function App() {
 
   function handleCreateNewTask(newTaskContent: string) {
     let newTask: TaskProps = {
-      id: newTaskContent,
+      id: v4(),
       content: newTaskContent,
       status: "todo",
       onDeleteTask: deleteTask,
       onUpdateStatus: updateTaskStatus,
     };
-
-    setTasks((state) => {
-      return [...state, newTask];
-    });
+    setTasks((state) => [...state, newTask]);
   }
 
   function deleteTask(taskToDelete: string) {
